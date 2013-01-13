@@ -1,7 +1,5 @@
 snake
 =====
-A Graphics Contest Submission
-
 Scott Bertics
 
 July 13, 2011
