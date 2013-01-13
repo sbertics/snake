@@ -196,31 +196,31 @@ public class Snake extends GraphicsProgram{
 		multiplayer_heart = new ArrayList<GImage>(BEGIN_LIVES);
 		
 		uh_oh_img = new ArrayList<String>(11);
-		uh_oh_img.add(0, "focus.png");
-		uh_oh_img.add(1, "java.png");
-		uh_oh_img.add(2, "osvaldo.png");
-		uh_oh_img.add(3, "happy-chicken.png");
-		uh_oh_img.add(4, "pointers.png");
-		uh_oh_img.add(5, "turing.png");
-		uh_oh_img.add(6, "ubuntu.png");
-		uh_oh_img.add(7, "hi.png");
-		uh_oh_img.add(8, "dennis.png");
-		uh_oh_img.add(9, "evolution.png");
-		uh_oh_img.add(10, "computer_programming_101.png");
+		uh_oh_img.add(0, "./img/focus.png");
+		uh_oh_img.add(1, "./img/java.png");
+		uh_oh_img.add(2, "./img/osvaldo.png");
+		uh_oh_img.add(3, "./img/happy-chicken.png");
+		uh_oh_img.add(4, "./img/pointers.png");
+		uh_oh_img.add(5, "./img/turing.png");
+		uh_oh_img.add(6, "./img/ubuntu.png");
+		uh_oh_img.add(7, "./img/hi.png");
+		uh_oh_img.add(8, "./img/dennis.png");
+		uh_oh_img.add(9, "./img/evolution.png");
+		uh_oh_img.add(10, "./img/computer_programming_101.png");
 
 		uh_oh_count = 9;
 		random_uh_oh = new GImage(uh_oh_img.get(uh_oh_count));
 		
 		food_img = new ArrayList<String>(GROW_MAX);
-		food_img.add(0, "apple_icon.png");
-		food_img.add(1, "banana_icon.png");
-		food_img.add(2, "strawberry_icon.png");
+		food_img.add(0, "./img/apple_icon.png");
+		food_img.add(1, "./img/banana_icon.png");
+		food_img.add(2, "./img/strawberry_icon.png");
 		
 		power_up_img = new ArrayList<String>(4);
-		power_up_img.add(0, "extra_life.png");
-		power_up_img.add(1, "coin.png");
-		power_up_img.add(2, "three_times.png");
-		power_up_img.add(3, "accelerate.png");
+		power_up_img.add(0, "./img/extra_life.png");
+		power_up_img.add(1, "./img/coin.png");
+		power_up_img.add(2, "./img/three_times.png");
+		power_up_img.add(3, "./img/accelerate.png");
 		
 		powerup_label = new GLabel("");
 		three_times = 1;
@@ -228,16 +228,16 @@ public class Snake extends GraphicsProgram{
 			multiplayer_three_times = 1;
 		}
 		
-		play = new GImage("button3.png");
-		play_highlight = new GImage("button3-2.png");
-		options = new GImage("button5.png");
-		options_highlight = new GImage("button5-2.png");
-		help = new GImage("button4.png");
-		help_highlight = new GImage("button4-2.png");
-		exit = new GImage("button2.png");
-		exit_highlight = new GImage("button2-2.png");
-		return_button = new GImage("button2.png");
-		return_button_highlight = new GImage("button2-2.png");
+		play = new GImage("./img/button3.png");
+		play_highlight = new GImage("./img/button3-2.png");
+		options = new GImage("./img/button5.png");
+		options_highlight = new GImage("./img/button5-2.png");
+		help = new GImage("./img/button4.png");
+		help_highlight = new GImage("./img/button4-2.png");
+		exit = new GImage("./img/button2.png");
+		exit_highlight = new GImage("./img/button2-2.png");
+		return_button = new GImage("./img/button2.png");
+		return_button_highlight = new GImage("./img/button2-2.png");
 		
 		credit = new GLabel("A Game by Scott Bertics");
 		
@@ -271,7 +271,7 @@ public class Snake extends GraphicsProgram{
 	 */
 	private void mainScreen(){
 		
-		GImage title = new GImage("snake.png");
+		GImage title = new GImage("./img/snake.png");
 		title.setLocation(width/2 - title.getWidth()/2, 0);
 		add(title);
 		
@@ -399,7 +399,7 @@ public class Snake extends GraphicsProgram{
 		add(whitespace);
 		
 		//The title label
-		GImage temp_img = new GImage("snake_small.png");
+		GImage temp_img = new GImage("./img/snake_small.png");
 		temp_img.setLocation(width/2 - temp_img.getWidth()/2, whitespace_height/2 - temp_img.getHeight()/2);
 		add(temp_img);
 		
@@ -412,14 +412,14 @@ public class Snake extends GraphicsProgram{
 		multiplayer_lives = BEGIN_LIVES;
 		
 		for(int i = 0; i < lives + 1; i++){
-			heart.add(i, new GImage("heart.png"));
+			heart.add(i, new GImage("./img/heart.png"));
 			GImage temp = heart.get(i);
 			temp.setLocation((i+1) * temp.getWidth(), whitespace.getHeight()/2);
 			add(temp);
 		}
 		if(multiplayer){
 			for(int i = 0; i < multiplayer_lives + 1; i++){
-				multiplayer_heart.add(i, new GImage("heart.png"));
+				multiplayer_heart.add(i, new GImage("./img/heart.png"));
 				GImage temp = multiplayer_heart.get(i);
 				temp.setLocation(width - ((i+1) * temp.getWidth()), height - bottom_border + size);
 				add(temp);
@@ -807,14 +807,14 @@ public class Snake extends GraphicsProgram{
 			
 			if(powerup == "extra life"){
 				if(multiplayer && multiplayer_snake.get(0).getX() == foodX && multiplayer_snake.get(0).getY() == foodY){
-					multiplayer_heart.add(multiplayer_lives, new GImage("heart.png"));
+					multiplayer_heart.add(multiplayer_lives, new GImage("./img/heart.png"));
 					add(multiplayer_heart.get(multiplayer_lives));
 					multiplayer_heart.get(multiplayer_lives).setLocation((multiplayer_lives + 2) * multiplayer_heart.get(multiplayer_lives).getWidth(), whitespace.getHeight()/2);
 					multiplayer_lives++;
 					powerup_label.setLabel("Extra Life Earned!");
 					powerup_label.setLocation(width/2 - powerup_label.getWidth()/2, height - size/2);
 				}else{
-					heart.add(lives, new GImage("heart.png"));
+					heart.add(lives, new GImage("./img/heart.png"));
 					add(heart.get(lives));
 					heart.get(lives).setLocation((lives + 2) * heart.get(lives).getWidth(), whitespace.getHeight()/2);
 					lives++;
@@ -977,7 +977,7 @@ public class Snake extends GraphicsProgram{
 	 */
 	private void optionsScreen(){
 		//switch to options img
-		GImage title = new GImage("options.png");
+		GImage title = new GImage("./img/options.png");
 		title.setLocation(width/2 - title.getWidth()/2, 0);
 		add(title);
 		
@@ -1043,11 +1043,11 @@ public class Snake extends GraphicsProgram{
 		multi_player.setLocation(3*width/4, 9*height/16);
 		add(multi_player);
 		
-		return_button = new GImage("button2.png");
+		return_button = new GImage("./img/button2.png");
 		return_button.setLocation(width/2 - return_button.getWidth()/2, 3*height/4);
 		add(return_button);
 		
-		return_button_highlight = new GImage("button2-2.png");
+		return_button_highlight = new GImage("./img/button2-2.png");
 		return_button_highlight.setLocation(return_button.getX(), return_button.getY());
 		return_button_highlight.setVisible(false);
 		add(return_button_highlight);		
@@ -1091,7 +1091,7 @@ public class Snake extends GraphicsProgram{
 	 */
 	private void helpScreen(){
 		
-		GImage title = new GImage("help.png");
+		GImage title = new GImage("./img/help.png");
 		title.setLocation(width/2 - title.getWidth()/2, 0);
 		add(title);
 		
@@ -1110,19 +1110,19 @@ public class Snake extends GraphicsProgram{
 		powerups.setLocation(width/8 - basics.getWidth()/2, height/3 + 2*basics.getAscent());
 		add(powerups);
 		
-		GImage coin = new GImage("coin.png");
+		GImage coin = new GImage("./img/coin.png");
 		coin.setLocation(width/8, height/3 + 9*basics.getAscent()/4);
 		add(coin);
 		add(new GLabel("The coin adds 100 points to your score.  There is a 46% chance that it is chosen as a power-up."), width/8 + 30, height/3 + 11*basics.getAscent()/4);
 		
-		add(new GImage("three_times.png"), width/8, coin.getY() + 25);
+		add(new GImage("./img/three_times.png"), width/8, coin.getY() + 25);
 		add(new GLabel("The triple growth triples the amount that the snake grows by per food dot.  There is a 25% chance that it is chosen."), width/8 + 30, coin.getY() + 39);
 		
-		add(new GImage("accelerate.png"), width/8, coin.getY() + 46);
+		add(new GImage("./img/accelerate.png"), width/8, coin.getY() + 46);
 		add(new GLabel("The accelerate power-up quickens gameplay until the next power-" +
 				"up is acquired.  There is a 25% chance that it is chosen."), width/8 + 30, coin.getY() + 61);
 		
-		add(new GImage("extra_life.png"), width/8, coin.getY() + 67);
+		add(new GImage("./img/extra_life.png"), width/8, coin.getY() + 67);
 		add(new GLabel("The extra life power-up gives the snake an additional life.  There is a 4% chance that it is chosen."), width/8 + 30, coin.getY() + 82);
 		
 		GLabel food = new GLabel("Food");
@@ -1131,20 +1131,20 @@ public class Snake extends GraphicsProgram{
 		food.setLocation(width/8 - basics.getWidth()/2, height/3 + 23*basics.getAscent()/4);
 		add(food);
 		
-		add(new GImage("apple_icon.png"), width/8, coin.getY() + 120);
+		add(new GImage("./img/apple_icon.png"), width/8, coin.getY() + 120);
 		add(new GLabel("The snake grows by one segment when it eats the apple."), width/8 + 30, coin.getY() + 135);
 		
-		add(new GImage("banana_icon.png"), width/8, coin.getY() + 141);
+		add(new GImage("./img/banana_icon.png"), width/8, coin.getY() + 141);
 		add(new GLabel("The snake grows by two segments when it eats the banana."), width/8 + 30, coin.getY() + 156);
 		
-		add(new GImage("strawberry_icon.png"), width/8, coin.getY() + 162);
+		add(new GImage("./img/strawberry_icon.png"), width/8, coin.getY() + 162);
 		add(new GLabel("The snake grows by three segments when it eats the strawberry."), width/8 + 30, coin.getY() + 177);
 		
-		return_button = new GImage("button2.png");
+		return_button = new GImage("./img/button2.png");
 		return_button.setLocation(width/2 - return_button.getWidth()/2, 3*height/4 + 25);
 		add(return_button);
 		
-		return_button_highlight = new GImage("button2-2.png");
+		return_button_highlight = new GImage("./img/button2-2.png");
 		return_button_highlight.setLocation(return_button.getX(), return_button.getY());
 		return_button_highlight.setVisible(false);
 		add(return_button_highlight);
@@ -1180,11 +1180,11 @@ public class Snake extends GraphicsProgram{
 		also.setLocation(width/2 - also.getWidth()/2, height);
 		add(also);
 		
-		return_button = new GImage("button2.png");
+		return_button = new GImage("./img/button2.png");
 		return_button.setLocation(width/2 - return_button.getWidth()/2, 3*height/4 + 25);
 		add(return_button);
 		
-		return_button_highlight = new GImage("button2-2.png");
+		return_button_highlight = new GImage("./img/button2-2.png");
 		return_button_highlight.setLocation(return_button.getX(), return_button.getY());
 		return_button_highlight.setVisible(false);
 		add(return_button_highlight);
